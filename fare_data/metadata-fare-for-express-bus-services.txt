@@ -1,0 +1,78 @@
+# Metadata for Fares for Express Bus Services
+---
+Identifier: '6c412661-2ae1-4df7-bbae-18d9075789d1'
+Name: 'fare-for-express-bus-services'
+Title: 'Fares for Express Bus Services'
+Description: 'Fare structure for express bus services (cents)'
+Topics:
+  - 'Transport'
+Keywords:
+  - 'bus'
+  - 'fare'
+  - 'public transport'
+Publisher:
+  Name: 'Public Transport Council'
+  Admin 1:
+    Name: 'Teh Mei Boon'
+    Department: 'Policy & Regulation'
+    Email: 'TEH_mei_boon@ptc.gov.sg'
+  Admin 2:
+    Name: 'Sim Poh Chun'
+    Department: 'Policy & Regulation'
+    Email: 'SIM_poh_chun@ptc.gov.sg'
+Sources:
+  - 'Public Transport Council'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Annual'
+Coverage: '2019-12-28 to 2020-12-25'
+Last Updated: '2019-12-27T01:38:10.723170'
+Resources:
+  -
+    Identifier: '32cf2f0a-7790-40f0-a6cd-929697edd3b8'
+    Title: 'Fares for Express Bus Services (Effective from 28 December 2019)'
+    Url: 'https://storage.data.gov.sg/fare-for-express-bus-services/resources/fares-for-express-bus-services-effective-from-28-december-2019-2019-12-26T11-01-34Z.csv'
+    Format: 'CSV'
+    Coverage: '2019-12-28 to 2020-12-25'
+    Last Updated: '2019-12-26T11:01:34.316616'
+    Schema:
+      -
+        Name: 'distance'
+        Title: 'Distance'
+        Type: 'text'
+        Sub Type: 'general'
+      -
+        Name: 'cash_fare_per_ride'
+        Title: 'Cash fare per ride'
+        Type: 'numeric'
+        Sub Type: 'general'
+        Unit Of Measure: 'cents'
+      -
+        Name: 'adult_card_fare_per_ride'
+        Title: 'Adult card fare per ride'
+        Type: 'numeric'
+        Sub Type: 'general'
+        Unit Of Measure: 'cents'
+      -
+        Name: 'senior_citizen_card_fare_per_ride'
+        Title: 'Senior citizen card fare per ride'
+        Type: 'numeric'
+        Sub Type: 'general'
+        Unit Of Measure: 'cents'
+      -
+        Name: 'student_card_fare_per_ride'
+        Title: 'Student card fare per ride'
+        Type: 'numeric'
+        Sub Type: 'general'
+        Unit Of Measure: 'cents'
+      -
+        Name: 'workfare_transport_concession_card_fare_per_ride'
+        Title: 'Workfare transport concession card fare per ride'
+        Type: 'numeric'
+        Sub Type: 'general'
+        Unit Of Measure: 'cents'
+      -
+        Name: 'persons_with_disabilities_card_fare_per_ride'
+        Title: 'Persons with disabilities card fare per ride'
+        Type: 'numeric'
+        Sub Type: 'general'
+        Unit Of Measure: 'cents'
