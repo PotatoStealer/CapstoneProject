@@ -94,6 +94,8 @@ def route_planner():
 
         if not guesses:
             return render_template('route_planner.html', warn=WARN_NOSTOPS)
+
+        # Unpack the predicted values and its search score
         origin, r1 = guesses[0][0][0], guesses[0][1]
         destination, r2 = guesses[1]
         services = guesses[2]
