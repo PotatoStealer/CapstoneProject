@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+            html {
+                font-family: 'Arial';
+                font-size: 20px;
+                background-image: url('static/images/splash.jpg');
+                background-size: cover;
+                background-position: 20 100;
+                background-repeat: no-repeat;
+            }
+
+            form label {
+                color: #99ccff;
+            }
+
+            /* The sidebar menu */
+            .sidebar {
+              height: 100%; /* Full-height: remove this if you want "auto" height */
+              width: 160px; /* Set the width of the sidebar */
+              position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+              z-index: 1; /* Stay on top */
+              top: 0; /* Stay at the top */
+              left: 0;
+              background-color: #312450;
+              overflow-x: hidden; /* Disable horizontal scroll */
+              padding-top: 20px;
+            }
+
+            /* The navigation menu links */
+            .sidebar a {
+              padding: 6px 8px 6px 16px;
+              text-decoration: none;
+              font-size: 20px;
+              color: #00ffff;
+              display: block;
+            }
+
+            /* When you mouse over the navigation links, change their color */
+            .sidebar a:hover {
+              color: #ffffff;
+            }
+
+            .main {
+                margin-left: 160px;
+            }
+
+            /* Style page content */
+            .main h1 {
+              padding: 0px 10px;
+              color: #ffffff;
+            }
+
+            .main p {
+              color: #99ccff;
+            }
+
+            .main a {
+                color: #000099;
+            }
+
+            .brief p {
+                padding: 0px 10px;
+                color: #ffffff;
+            }
+
+            .warn p {
+                padding: 0px 10px;
+                color: #ccff99;
+            }
+
+            .tint {
+                z-index: 1;
+                background: rgba(255,179,102,0.55);
+            }
+
+        </style>
+    <head>
+        <meta charset="UTF-8">
+        <title>Route through Bus Stops</title>
+    </head>
+    <div class="sidebar">
+        <a href="bus_service">Bus Services</a>
+        <a href="route_planner">Route Planner</a>
+        <a href="route_through_stop">Bus Stops</a>
+        <a href="/">Back to home</a>
+    </div>
+
+    <div class="main">
+        <article class="brief">
+            <h1>Bus Stops</h1>
+            <p>Enter a bus stop code to learn more about it!</p>
+        </article>
+
+        <center>
+            <form>
+                <label>Bus Stop Code:</label>
+                <input type="text" name="busstopcode">
+                <input type="submit">
+            </form>
+            {% if busstopcode is not none %}
+                {% if busstopcode|string() != 0|string() %}
+                    <p>Showing bus routes passing through Bus Stop {{busstopcode}}:</p>
+                {% else %}
+                    <div class="warn">
+                        <p>No such bus stop!</p>
+                    </div>
+                {% endif %}
+            {% endif %}
+            <div class="tint">
+                {% if display %}
+                    <table style="color: #000099">
+                        <tr>
+                            <th>Bus Service</th>
+                            <th>Origin</th>
+                            <th>Destination</th>
+                        </tr>
+                        {% for row in display %}
+                            <tr>
+                                <td><a href="{{url_for('bus_service', service_no=row[0], direction=row[3])}}">{{row[0]}}</a></td>
+                                <td>{{row[1]}}</td>
+                                <td>{{row[2]}}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% endif %}
+            </div>
+        </center>
+    </div>
+</html>

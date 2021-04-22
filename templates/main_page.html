@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Bus Depot</title>
+        <style>
+            html {
+                font-family: 'Arial';
+                font-size: 20px;
+                background-image: url('static/images/splash.jpg');
+                background-size: cover;
+                background-position: 20 100;
+                background-repeat: no-repeat;
+            }
+
+            form label {
+                color: #99ccff;
+            }
+
+            /* The sidebar menu */
+            .sidebar {
+              height: 100%; /* Full-height: remove this if you want "auto" height */
+              width: 160px; /* Set the width of the sidebar */
+              position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+              z-index: 1; /* Stay on top */
+              top: 0; /* Stay at the top */
+              left: 0;
+              background-color: #312450;
+              overflow-x: hidden; /* Disable horizontal scroll */
+              padding-top: 20px;
+            }
+
+            /* The navigation menu links */
+            .sidebar a {
+              padding: 6px 8px 6px 16px;
+              text-decoration: none;
+              font-size: 20px;
+              color: #00ffff;
+              display: block;
+            }
+
+            /* When you mouse over the navigation links, change their color */
+            .sidebar a:hover {
+              color: #ffffff;
+            }
+
+            .main {
+                margin-left: 160px;
+            }
+
+            /* Style page content */
+            .main h1 {
+              padding: 0px 10px;
+              color: #ffffff;
+            }
+
+            .main p {
+              color: #99ccff;
+            }
+
+            .main a {
+                color: #000099;
+            }
+
+            .brief p {
+                padding: 0px 10px;
+                color: #ffffff;
+            }
+
+            .warn p {
+                padding: 0px 10px;
+                color: #ccff99;
+            }
+
+            .tint {
+                z-index: 1;
+                background: rgba(255,179,102,0.55);
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="sidebar">
+            <a href="bus_service">Bus Services</a>
+            <a href="route_planner">Route Planner</a>
+            <a href="route_through_stop">Bus Stops</a>
+        </div>
+
+        <div class="main">
+            <article class="brief">
+                <h1>Bus Depot</h1>
+                <p>Select a page on the sidebar to start your journey!</p>
+            </article>
+        </div>
+    </body>
+
+</html>
