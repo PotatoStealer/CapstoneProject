@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from sql_utils import database, fetch_description, fetch_service_description, fetch_service_stops
-from utils import bestStartEndGuess
+from utils import bestStartEndGuess, clean
 import re
 
 app = Flask(__name__)
@@ -40,7 +40,7 @@ def natSort(arr):
 @app.route("/route_through_stop")
 def route_through_stop():
     if request.args.get("busstopcode", None):
-        busstopcode = request.args["busstopcode"]
+        busstopcode = clean(request.args["busstopcode"])
         fetch = routes(busstopcode)
         if len(fetch):
             display = []
@@ -73,11 +73,11 @@ def bus_service():
         return info
 
     if request.args.get("service_no", None):
-        service_no = request.args["service_no"]
+        service_no = clean(request.args["service_no"])
         if not request.args.get("direction", None):
             return render_template("bus_service.html", service_no=service_no, info=prettify_service_info(service_no))
         else:
-            direction = request.args["direction"]
+            direction = clean(request.args["direction"])
             return render_template("bus_service.html", service_no=service_no, stops=fetch_service_stops(service_no, direction))
 
     return render_template("bus_service.html")
@@ -90,6 +90,9 @@ def route_planner():
 
     if request.args.get("origin", None) and request.args.get("destination", None):
         origin, destination = request.args["origin"], request.args["destination"]
+        if not (len(origin) <= 15 and len(destination) <= 15):
+            return render_template('route_planner.html', info=[], warn=WARN_NOSTOPS)
+
         guesses = bestStartEndGuess(origin, destination)
 
         if not guesses:

@@ -33,7 +33,7 @@ def route_through_stops(origin: int, destination: int):
     else:
         return [(stop_description(origin), 100), (stop_description(destination), 100), set(routes(origin)) & set(routes(destination))]
 
-def bestStartEndGuess(origin: str, destination: str, guess_limit=30, guess_threshold=70, certainty_threshold=88):
+def bestStartEndGuess(origin: str, destination: str, guess_limit=18, guess_threshold=69, certainty_threshold=88):
     """
     For the Route Planner feature. Includes logic to account for poor naming decisions by LTA causing
     bad guesses by fuzzywuzzy.
