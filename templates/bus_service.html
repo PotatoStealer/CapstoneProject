@@ -95,6 +95,7 @@
                     <input type="submit">
                 </form>
                 {% if service_no and not stops %}
+                    {% if info %}
                     <p>Showing routes for Bus No. {{service_no}}:</p>
                     <div class="tint">
                         <table style="color: #00004d">
@@ -112,6 +113,11 @@
                             {% endfor %}
                         </table>
                     </div>
+                    {% else %}
+                        <div class="warn">
+                            <p>No such bus service!</p>
+                        </div>
+                    {% endif %}
                 {% endif %}
 
                 {% if stops and service_no %}
