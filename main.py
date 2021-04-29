@@ -90,7 +90,7 @@ def route_planner():
 
     if request.args.get("origin", None) and request.args.get("destination", None):
         origin, destination = request.args["origin"], request.args["destination"]
-        if not (len(origin) <= 15 and len(destination) <= 15):
+        if not (len(origin) <= 30 and len(destination) <= 30):
             return render_template('route_planner.html', info=[], warn=WARN_NOSTOPS)
 
         guesses = bestStartEndGuess(origin, destination)
@@ -99,7 +99,7 @@ def route_planner():
             return render_template('route_planner.html', warn=WARN_NOSTOPS)
 
         # Unpack the predicted values and its search score
-        origin, r1 = guesses[0][0][0], guesses[0][1]
+        origin, r1 = guesses[0][0], guesses[0][1]
         destination, r2 = guesses[1]
         services = guesses[2]
         error = ""
