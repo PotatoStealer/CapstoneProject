@@ -1,5 +1,5 @@
 from fuzzywuzzy import fuzz, process
-from hideous_sql_things import fetch_all_stops, database
+from sql_utils import fetch_all_stops, database
 import time
 
 PUNCTUATION_BLACKLIST = r"""!'"$%&();<=>?"""

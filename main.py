@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
-from hideous_sql_things import database, fetch_description, fetch_service_description, fetch_service_stops
-from contrived_utils import bestStartEndGuess
+from sql_utils import database, fetch_description, fetch_service_description, fetch_service_stops
+from utils import bestStartEndGuess
 import re
 
 app = Flask(__name__)
